@@ -72,8 +72,3 @@ Feel free to reach out for any opportunities or collaborations:
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 ```
 
-### Instructions pour personnaliser
-
-1. **Remplacez les liens** : Assurez-vous de remplacer les liens GitHub et LinkedIn par vos propres liens.
-2. **Ajoutez des sections supplémentaires** : Si votre projet a des fonctionnalités ou des détails supplémentaires, n'hésitez pas à les ajouter.
-3. **Mettez à jour les instructions d'installation** : Si votre projet nécessite des étapes spécifiques pour l'installation ou la configuration, assurez-vous de les inclure.
