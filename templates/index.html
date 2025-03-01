@@ -1,0 +1,412 @@
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Personal resume website showcasing professional experience, skills, and projects" name="description"/>
+<meta content="resume, portfolio, professional, skills, experience, projects" name="keywords"/>
+<meta content="Professional Resume" property="og:title"/>
+<meta content="Personal resume website showcasing professional experience, skills, and projects" property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="Professional Resume" name="twitter:title"/>
+<meta content="Personal resume website showcasing professional experience, skills, and projects" name="twitter:description"/>
+<title>Professional Resume</title>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<style>body {
+    font-family: 'Inter', sans-serif;
+    color: #1a1a1a;
+    background-color: #f8f9fa;
+}
+
+.section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #2d3748;
+}
+</style>
+<style>.header {
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+}
+
+.nav-links a {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #2d3748;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+</style>
+<style>.about-content img {
+    transition: transform 0.3s ease;
+    border: 4px solid #e2e8f0;
+}
+
+.about-content img:hover {
+    transform: scale(1.05);
+}
+
+.about-content h3 {
+    background: linear-gradient(120deg, #4a90e2, #50c9c3);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.about-content p {
+    line-height: 1.8;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
+<style>.experience-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e2e8f0;
+}
+
+.experience-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.experience-item h3 {
+    color: #2d3748;
+}
+
+.experience-item .position-period {
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 0.5rem;
+}
+
+.experience-item p {
+    line-height: 1.6;
+}
+</style>
+<style>.skill-category {
+    transition: transform 0.3s ease;
+    border: 1px solid #e2e8f0;
+}
+
+.skill-category:hover {
+    transform: translateY(-4px);
+}
+
+.skill-category h3 {
+    color: #2d3748;
+    border-bottom: 2px solid #4a90e2;
+    display: inline-block;
+}
+
+.skill-item {
+    transition: transform 0.2s ease;
+}
+
+.skill-item:hover {
+    transform: translateX(4px);
+}
+
+.skill-item i {
+    transition: transform 0.2s ease;
+}
+
+.skill-item:hover i {
+    transform: scale(1.2);
+}
+</style>
+<style>.project-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e2e8f0;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.project-card h3 {
+    color: #2d3748;
+}
+
+.project-tech span {
+    transition: background-color 0.3s ease;
+}
+
+.project-tech span:hover {
+    background-color: #e2e8f0;
+}
+
+.project-card a {
+    transition: color 0.3s ease;
+}
+
+.project-card a i {
+    transition: transform 0.3s ease;
+}
+
+.project-card a:hover i {
+    transform: rotate(360deg);
+}
+</style>
+<style>.contact-container {
+    transition: transform 0.3s ease;
+}
+
+.contact-links a {
+    transition: transform 0.3s ease, color 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+
+.contact-links a:hover {
+    transform: translateY(-2px);
+    background-color: #f7fafc;
+}
+
+.contact-links i {
+    transition: transform 0.3s ease;
+}
+
+.contact-links a:hover i {
+    transform: scale(1.2);
+}
+
+.contact-container p {
+    line-height: 1.8;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
+<script id="trickle-project">window.__PROTO_STATE__ = {"projectId":"proj_177Tu7nup8D","userId":"usr_0cfbf81c78000001","workspaceId":"workspace_id_usr_0cfbf81c78000001","memberId":"member_id_usr_0cfbf81c78000001","projectTitle":"Personal Resume Website"};</script><script id="trickle-report-error">function reportError (error) {
+	if (window.parent) {
+		window.parent.postMessage({
+            type: "error",
+            data: error.stack || error.message || ''
+        }, '*');
+	}
+}</script><script id="trickle-error-boundary">class ErrorBoundary extends React.Component{constructor(props){super(props);this.state={hasError:false,error:null,errorInfo:null}}static getDerivedStateFromError(error){return{hasError:true}}componentDidCatch(error,errorInfo){if(window.location.origin.startsWith("https://preview__")){window.parent.postMessage({type:"error",data:error.toString()},"*");this.setState({error:error,errorInfo:errorInfo})}}render(){return this.props.children}}</script><script>
+    window.addEventListener('message', (event) => {
+        if (event.data.type === 'getHTML') {
+            const html = document.documentElement.outerHTML;
+            event.source.postMessage({ type: 'html', data: html }, '*');
+        }
+    });
+    </script><script id="trickle-inject">
+        window.addEventListener('error', (e) => {
+            console.log('error', e);
+            window.parent.postMessage({
+                type: "error",
+                data: (e.error ? e.error.stack || e.error.message : '')
+            }, "*");
+        });
+
+        window.addEventListener('unhandledrejection', (e) => {
+            console.log('unhandledrejection', e);
+            window.parent.postMessage({
+                type: "unhandledrejection",
+                data: (e.error ? e.error.stack || e.error.message : '')
+            }, "*");
+        });
+        </script><script id="trickle-teleport">
+        window.openTeleport = (element) => {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'trickle-teleport';
+            wrapper.appendChild(element);
+            document.body.append(wrapper);
+        }
+
+        window.closeTeleport = () => {
+            document.querySelectorAll('.trickle-teleport').forEach((e) => {
+                e.remove();
+            });
+        }
+        </script></head>
+<body><script src="https://app.trickle.so/storage/trickle.js"></script>
+<div id="root"></div>
+<script>function Header()
+    {try{return React.createElement("header",{"data-name":"header",className:"bg-white shadow-sm sticky top-0 z-50"},
+    React.createElement("nav",{"data-name":"nav",className:"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"},
+    React.createElement("div",{"data-name":"nav-container",className:"flex justify-between h-16"},
+    React.createElement("div",{"data-name":"logo",className:"flex items-center"},
+    React.createElement("h1",{className:"text-xl font-bold"},"Alex Dynamo")),
+    React.createElement("div",{"data-name":"nav-links",className:"hidden md:flex items-center space-x-8"},
+    React.createElement("a",{href:"#about",className:"text-gray-700 hover:text-gray-900"},"About"),
+    React.createElement("a",{href:"#experience",className:"text-gray-700 hover:text-gray-900"},"Experience"),
+    React.createElement("a",{href:"#skills",className:"text-gray-700 hover:text-gray-900"},"Skills"),
+    React.createElement("a",{href:"#projects",className:"text-gray-700 hover:text-gray-900"},"Projects"),
+    React.createElement("a",{href:"#contact",className:"text-gray-700 hover:text-gray-900"},"Contact")))))}catch(error){console.error("Header component error:",error);reportError(error);return null}}
+</script>
+
+<script>function About()
+    {try{return React.createElement("section",{id:"about","data-name":"about",className:"section bg-white"},
+    React.createElement("h2",{className:"section-title"},"About Me"),
+    React.createElement("div",{"data-name":"about-content",className:"max-w-3xl mx-auto text-center"},
+    React.createElement("img",{"data-name":"profile-image",src:"https://media.licdn.com/dms/image/v2/D4D03AQG3EctA78HfVQ/profile-displayphoto-shrink_800_800/B4DZVEItNbG8Ac-/0/1740604898444?e=1746057600&v=beta&t=yHSKn6s3DdpBTYKdqSO43gqSZkTwEfwo2Y9VlJ1vOOQ",alt:"Profile",className:"w-32 h-32 rounded-full mx-auto mb-6"}),
+    React.createElement("h3",{"data-name":"name",className:"text-2xl font-bold mb-4"},"Alex Dynamo"),
+    React.createElement("p",{"data-name":"title",className:"text-xl text-gray-600 mb-4"},"Amateur Software Engineer"),
+    React.createElement("p",{"data-name":"bio",className:"text-gray-600 leading-relaxed"},"Passionate software engineer with over 3 years of experience creating Mobile applications. Specialized in Kivy, Kivymd and Flask technologies. Always eager to learn and take on new challenges in the world of technology.")))}catch(error){console.error("About component error:",error);reportError(error);return null}}</script>
+<script>function Experience()
+    {try{const experiences=[{company:"StartUp Labs",position:"Senior Mobile Applicaiton",period:"2023 - Present",description:"Worked on frontend development, Mobiles Applications , Scrapping project and web applications using Kivy, Kivymd, Requests and BeautifulSoup. Managed team of 2 developers."},{company:"High Dark Company of Digital Application",position:"Software Engineer",period:"2023 - 2023",description:"Developed and maintained client-facing applications. Implemented new features and optimizations."},{company:"StartUp Labs",position:"Junior Developer",period:"2022 - 2023",description:"Worked on frontend development, Mobiles Applications , Scrapping project using Selenium Kivy, Kivymd."}];return React.createElement("section",{id:"experience","data-name":"experience",className:"section"},
+    React.createElement("h2",{className:"section-title"},"Experience"),React.createElement("div",{"data-name":"experience-list",className:"max-w-3xl mx-auto space-y-8"},experiences.map((exp,index)=>React.createElement("div",{key:index,"data-name":"experience-item",className:"bg-white p-6 rounded-lg shadow-sm"},
+    React.createElement("h3",{"data-name":"company",className:"text-xl font-bold text-gray-900"},exp.company),
+    React.createElement("div",{"data-name":"position-period",className:"flex justify-between items-center mt-2"},
+    React.createElement("p",{className:"text-gray-600"},exp.position),React.createElement("span",{className:"text-gray-500"},exp.period)),
+    React.createElement("p",{"data-name":"description",className:"mt-4 text-gray-600"},exp.description)))))}catch(error){console.error("Experience component error:",error);reportError(error);return null}}
+</script>
+
+<script>function Skills()
+    {try{const skills={"Frontend":["HTML5"],"Backend":["Python"],"Tools":["Git","VS Code"],"Soft Skills":["Leadership","Communication","Problem Solving"]};return React.createElement("section",{id:"skills","data-name":"skills",className:"section bg-white"},
+    React.createElement("h2",{className:"section-title"},"Skills"),
+    React.createElement("div",{"data-name":"skills-grid",className:"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"},Object.entries(skills).map(([category,items])=>React.createElement("div",{key:category,"data-name":"skill-category",className:"p-6 rounded-lg bg-gray-50"},
+    React.createElement("h3",{"data-name":"category-title",className:"text-lg font-semibold mb-4"},category),
+    React.createElement("ul",{className:"space-y-2"},items.map((skill,index)=>React.createElement("li",{key:index,"data-name":"skill-item",className:"flex items-center"},React.createElement("i",{className:"fas fa-check-circle text-green-500 mr-2"}),React.createElement("span",null,skill))))))))}catch(error){console.error("Skills component error:",error);reportError(error);return null}}</script>
+<script>function Projects()
+    {try{const projects=[{title:"MathMaster App",description:"Interactive math application to simplify and derive expressions.",technologies:["Kivy","Kivymd","Sympy","Kivmob"],link:"https://github.com/HDark02/kivy_Math_general_app"},{title:"E-commerce Shop Application",description:"Built a full-stack e-commerce platform using Kivymd, Requests and Django",technologies:["Kivymd", "Requests","Django"],link:"https://github.com/HDark02"},{title:"Free Sms App",description:"Created a free mobile application using kivy, kivymd and android hybrid library",technologies:["Kivy","Kivymd","Twilio API "],link:"https://github.com/HDark02/Kivy_freesms_app"}];return React.createElement("section",{id:"projects","data-name":"projects",className:"section"},
+    React.createElement("h2",{className:"section-title"},"Projects"),
+    React.createElement("div",{"data-name":"projects-grid",className:"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"},projects.map((project,index)=>React.createElement("div",{key:index,"data-name":"project-card",className:"bg-white p-6 rounded-lg shadow-sm"},
+    React.createElement("h3",{"data-name":"project-title",className:"text-xl font-bold mb-3"},project.title),
+    React.createElement("p",{"data-name":"project-description",className:"text-gray-600 mb-4"},project.description),
+    React.createElement("div",{"data-name":"project-tech",className:"flex flex-wrap gap-2 mb-4"},project.technologies.map((tech,i)=>React.createElement("span",{key:i,className:"px-3 py-1 bg-gray-100 rounded-full text-sm"},tech))),
+    React.createElement("a",{href:project.link,target:"_blank",rel:"noopener noreferrer",className:"text-blue-600 hover:text-blue-800 flex items-center"},
+    React.createElement("i",{className:"fab fa-github mr-2"}),"View Project")))))}catch(error){console.error("Projects component error:",error);reportError(error);return null}}</script>
+    <script>function Contact(){try{return React.createElement("section",{id:"contact","data-name":"contact",className:"section bg-white"},React.createElement("h2",{className:"section-title"},"Contact Me"),
+    React.createElement("div",{"data-name":"contact-container",className:"max-w-2xl mx-auto text-center"},
+    React.createElement("p",{className:"text-gray-600 mb-8"},"Feel free to reach out to me for any opportunities or collaborations."),
+    React.createElement("div",{"data-name":"contact-links",className:"flex justify-center space-x-6"},
+    <!--email element-->
+    React.createElement("a",{href:"mailto:analastar4@gmail.com",className:"flex items-center text-gray-700 hover:text-gray-900"},
+    React.createElement("i",{className:"fas fa-envelope text-xl mr-2"}),
+    React.createElement("span",null,"Email")),
+    <!--linkedin element-->
+    React.createElement("a",{href:"https://linkedin.com/in/ekoué-alex-degbe-809a37266",target:"_blank",rel:"noopener noreferrer",className:"flex items-center text-gray-700 hover:text-gray-900"},
+    React.createElement("i",{className:"fab fa-linkedin text-xl mr-2"}),
+    React.createElement("span",null,"LinkedIn")),
+    <!--github element-->
+    React.createElement("a",{href:"https://github.com/HDark02",target:"_blank",rel:"noopener noreferrer",className:"flex items-center text-gray-700 hover:text-gray-900"},
+    React.createElement("i",{className:"fab fa-github text-xl mr-2"}),
+    React.createElement("span",null,"GitHub")))))}catch(error){console.error("Contact component error:",error);reportError(error);return null}}
+</script>
+<script>function App()
+    {try{return React.createElement("div",{"data-name":"app",className:"min-h-screen"},
+    React.createElement(Header,null),
+    React.createElement("main",null,React.createElement(About,null),React.createElement(Experience,null),
+    React.createElement(Skills,null),React.createElement(Projects,null),
+    React.createElement(Contact,null)))}catch(error){console.error("App component error:",error);reportError(error);return null}}const root=ReactDOM.createRoot(document.getElementById("root"));root.render(React.createElement(ErrorBoundary,null,React.createElement(App,null)));
+</script>
+<script>
+(function () {
+    // Create a highlight div
+    const highlightDiv = document.createElement('div');
+    highlightDiv.style.position = 'absolute';
+    highlightDiv.style.pointerEvents = 'none';
+    highlightDiv.style.border = '2px solid red';
+    highlightDiv.style.zIndex = '9999';
+    highlightDiv.style.display = 'none';
+    document.body.appendChild(highlightDiv);
+
+    // Create a label div for displaying the element's type
+    const labelDiv = document.createElement('div');
+    labelDiv.style.position = 'absolute';
+    labelDiv.style.pointerEvents = 'none';
+    labelDiv.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+    labelDiv.style.color = 'white';
+    labelDiv.style.fontSize = '12px';
+    labelDiv.style.padding = '2px 5px';
+    labelDiv.style.borderRadius = '3px';
+    labelDiv.style.zIndex = '10000';
+    labelDiv.style.display = 'none';
+    document.body.appendChild(labelDiv);
+
+    let currentElement = null;
+    let inspectModeEnabled = false;
+
+    // Initialize inspect mode
+    function initInspectMode() {
+        document.addEventListener('mousemove', handleMouseMove);
+        document.addEventListener('click', handleClick, true);
+    }
+
+    // Disable inspect mode
+    function disableInspectMode() {
+        highlightDiv.style.display = 'none';
+        labelDiv.style.display = 'none';
+        currentElement = null;
+        document.removeEventListener('mousemove', handleMouseMove);
+        document.removeEventListener('click', handleClick, true);
+    }
+
+    // Mouse move event to update highlight position
+    function handleMouseMove(event) {
+        if (!inspectModeEnabled) return;
+        const element = document.elementFromPoint(event.clientX, event.clientY);
+        if (element && element !== currentElement) {
+            currentElement = element;
+            const rect = element.getBoundingClientRect();
+
+            // Update highlight div
+            highlightDiv.style.width = rect.width + 'px';
+            highlightDiv.style.height = rect.height + 'px';
+            highlightDiv.style.left = rect.left + window.scrollX + 'px';
+            highlightDiv.style.top = rect.top + window.scrollY + 'px';
+            highlightDiv.style.display = 'block';
+
+            // Update label div
+            labelDiv.textContent = element.getAttribute('data-name') || element.tagName.toLowerCase();
+            labelDiv.style.left = rect.left + window.scrollX + 'px';
+            labelDiv.style.top = rect.top + window.scrollY - labelDiv.offsetHeight + 'px';
+            labelDiv.style.display = 'block';
+        }
+    }
+
+    // Mouse click event to log element
+    function handleClick(event) {
+        if (!inspectModeEnabled) return;
+        event.preventDefault();
+        event.stopPropagation();
+        if (currentElement) {
+            window.parent.postMessage({ type: 'elementSelected', data: currentElement.outerHTML }, '*');
+        }
+    }
+
+    // Mouse out to hide highlight and label
+    document.addEventListener('mouseout', () => {
+        highlightDiv.style.display = 'none';
+        labelDiv.style.display = 'none';
+        currentElement = null;
+    });
+
+    window.addEventListener('message', (event) => {
+        if (event.data.action === 'toggleInspectMode') {
+            inspectModeEnabled = event.data.enabled;
+            if (inspectModeEnabled) {
+                initInspectMode();
+            } else {
+                disableInspectMode();
+            }
+        }
+    });
+})();
+</script></body></html>
